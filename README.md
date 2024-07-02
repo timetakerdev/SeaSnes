@@ -1,5 +1,5 @@
-# LakeSnes
-A SNES emulator, in C
+# SeaSnes
+A SNES emulator, in C forked from dinkc64!
 
 ## About
 
@@ -32,7 +32,7 @@ This build depends on SDL2 being installed with homebrew.
 - Make sure clang and make are available (from the Xcode CLI-tools)
 - Download the latest SDL2 build (the `.dmg`) from the [SDL2 Releases](https://github.com/libsdl-org/SDL/releases)
 - Create a directory called `sdl2` in this repo's directory and copy `SDL2.framework` from the dmg into it
-- Run `make LakeSnes.app`
+- Run `make SeaSnes.app`
 
 This is a stand-alone application (includes SDL2) and shows up in the 'open with' menu for smc, sfc and zip files.
 
@@ -53,14 +53,14 @@ NOTE: Only tested with Msys2 using clang for x86_64, but building for arm64 shou
 - Install clang and make: `pacman -S mingw-w64-clang-x86_64-clang mingw-w64-clang-x86_64-make`
 - Install SDL2: `pacman -S mingw-w64-clang-x86_64-SDL2`
 - Navigate to this repo's directory (`cd /c/Users/...`)
-- Run `mingw32-make lakesnes.exe` (or `mingw32-make` to build iconless exe)
+- Run `mingw32-make seasnes.exe` (or `mingw32-make` to build iconless exe)
 - Run `cp /clang64/bin/SDL2.dll .` (to copy `SDL2.dll`)
 
 This build depends on `SDL2.dll` being placed next to the executable.
 
 ## Usage and controls
 
-The emulator can be run by opening `lakesnes` directly or by running `./lakesnes`, taking an optional path to a ROM-file to open. ROM-files can also be dragged on the emulator window to open them. ZIP-files also work, the first file within with a `.smc` or `.sfc` will be loaded (zip support uses [this](https://github.com/kuba--/zip) zip-library, which uses Miniz, both under the Unlicence).
+The emulator can be run by opening `seasnes` directly or by running `./seasnes`, taking an optional path to a ROM-file to open. ROM-files can also be dragged on the emulator window to open them. ZIP-files also work, the first file within with a `.smc` or `.sfc` will be loaded (zip support uses [this](https://github.com/kuba--/zip) zip-library, which uses Miniz, both under the Unlicence).
 
 Currently, only normal joypads are supported, and only controller 1 has controls set up.
 
@@ -101,7 +101,7 @@ K does the same, but for the SPC instead (note that this acts as additional SPC 
 
 J currently dumps the 128K WRAM, 64K VRAM, 512B CGRAM, 544B OAM and 64K ARAM to a file called `dump.bin`.
 
-Battery saves, save states and `dump.bin` are stored in the SDL-provided preference directory, this is usually in `~/Library/Application Support/LakeSnes` on macOS, `~/.local/share/LakeSnes` on Linux and `%USERPROFILE%\AppData\Roaming\LakeSnes` on Windows. Battery saves go in a subdirectory `saves` and save states in `states`.
+Battery saves, save states and `dump.bin` are stored in the SDL-provided preference directory, this is usually in `~/Library/Application Support/SeaSnes` on macOS, `~/.local/share/SeaSnes` on Linux and `%USERPROFILE%\AppData\Roaming\SeaSnes` on Windows. Battery saves go in a subdirectory `saves` and save states in `states`.
 Battery saves and save states are currently named after the roms full name without extension, with `.srm` or `.lss` appended respectively.
 
 Note that the save state format and exact naming and location for battery saves and save states is still being worked on and subject to change. Further updates will likely break compatibility with older save states and battery saves might need to be moved around and/or renamed.
